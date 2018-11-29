@@ -12,7 +12,7 @@ Either `npm start` from the `src` directory, or F5 if to debug in VSCode.
 
 ## Opening Windows
 
-Run `.\openWindows.ps1 -Text "Some Text"`.
+Run `.\openWindow.ps1 -Text "Some Text"`.
 
 ## Closing THe Process
 
