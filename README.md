@@ -14,6 +14,6 @@ Either `npm start` from the `src` directory, or F5 if to debug in VSCode.
 
 Run `.\openWindow.ps1 -Text "Some Text"`.
 
-## Closing THe Process
+## Closing The Process
 
 Run `.\close.ps1`.
