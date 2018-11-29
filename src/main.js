@@ -22,6 +22,10 @@ function createWindow (body) {
             win.webContents.send('setText', body);
         });
     }
+
+    return {
+        hwnd: [...win.getNativeWindowHandle()]
+    }
 }
 
 const commands = {
@@ -31,7 +35,7 @@ const commands = {
 
 function processCommand(command, body) {
     if (commands[command]) {
-        commands[command](body);
+        return commands[command](body);
     }
 }
 
@@ -57,7 +61,13 @@ function startServer() {
                     let message = JSON.parse(buffer.toString('utf8', 0, index - 1));
 
                     if (message.command) {
-                        processCommand(message.command, message.body);
+                        var response = processCommand(message.command, message.body);
+
+                        if (response) {
+                            stream.write(JSON.stringify(response) + '\0', 'utf8');
+                        } else {
+                            stream.write('\0', 'utf8');
+                        }
                     }
                 } catch (e) {
                     console.log(e);
