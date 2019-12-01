@@ -1,0 +1,33 @@
+.dialog-wrapper {
+  background: #ecf1f4;
+  min-height: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-flow: column;
+}
+
+.title {
+  color: #515151;
+  text-align: center;
+  font: bold 16pt 'Tahoma', sans-serif;
+  padding: 0.1em;
+
+  flex: 0 1 auto;
+
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+}
+
+.content {
+  border: 1px solid white;
+  background: #b0c4de;
+  color: #515151;
+  font: bold 10pt 'Tahoma', sans-serif;
+
+  flex: 1 1 auto;
+
+  overflow: auto;
+  padding: 0 0.5em;
+  margin: 0 5px 5px 5px;
+}

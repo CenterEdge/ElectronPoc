@@ -77,3 +77,8 @@ typings/
 
 #DynamoDB Local files 
 .dynamodb/ 
+
+.vs/
+[Bb]in/
+[Oo]bj/
+*.user
