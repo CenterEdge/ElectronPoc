@@ -18,8 +18,10 @@ export const initialState: ApplicationState = {
   router: fromRouter.initialState
 };
 
+export function defaultReducer<T>(state: T) { return state; }
+
 export const reducers: ActionReducerMap<ApplicationState> = {
-  main: fromMain.reducer,
+  main: defaultReducer,
   router: fromRouter.reducer
 };
 
