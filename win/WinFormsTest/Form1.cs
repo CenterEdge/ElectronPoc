@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
+using WinFormsTest.Actions;
 
 namespace WinFormsTest
 {
@@ -41,9 +42,9 @@ namespace WinFormsTest
         {
             _processManager.MessagePipe.ObserveOn(SynchronizationContext.Current).Take(1).Subscribe(async pipe =>
             {
-                var result = await new ModalForm(pipe).ShowDialog(this, "page-one");
+                var result = await new ModalForm(pipe).ShowDialog<MainResultAction>(this, "page-one");
 
-                MessageBox.Show(this, result, "Result");
+                MessageBox.Show(this, result.Result != "ok" ? result.Result : result.Text, "Result");
             });
         }
     }

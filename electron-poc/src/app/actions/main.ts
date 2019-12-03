@@ -11,7 +11,7 @@ export const TextChanged = createAction(
   props<{ text: string }>()
 );
 
-export const DialogResult = createForParentAction(
-  '[Main] Dialog Result',
-  props<{ result: string }>()
+export const MainResult = createForParentAction(
+  '[Main] Main Result',
+  props<{ text?: string, result: string }>()
 );

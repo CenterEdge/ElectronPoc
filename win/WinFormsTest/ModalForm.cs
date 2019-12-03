@@ -24,14 +24,15 @@ namespace WinFormsTest
             _pipe = pipe ?? throw new ArgumentNullException(nameof(pipe));
         }
 
-        public async Task<string> ShowDialog(Form owner, params string[] route)
+        public async Task<TResult> ShowDialog<TResult>(Form owner, params string[] route)
+            where TResult: AngularAction
         {
             if (owner == null)
             {
                 throw new ArgumentNullException(nameof(owner));
             }
 
-            var tcs = new TaskCompletionSource<string>();
+            var tcs = new TaskCompletionSource<TResult>();
 
             var subscriptions = new List<IDisposable>();
             try
@@ -42,8 +43,8 @@ namespace WinFormsTest
 
                 subscriptions.Add(_pipe.Messages
                     .OfActions()
-                    .OfType<DialogResultAction>()
-                    .Subscribe(p => { tcs.TrySetResult(p.Result); }));
+                    .OfType<TResult>()
+                    .Subscribe(p => { tcs.TrySetResult(p); }));
 
                 RegisterHandlers(owner);
                 try

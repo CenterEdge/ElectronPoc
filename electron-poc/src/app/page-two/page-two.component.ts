@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { ApplicationState } from '../reducers';
-import { DialogResult } from '../actions/main';
+import { MainResult } from '../actions/main';
+import { selectText } from '../selectors/main';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-page-two',
@@ -16,6 +18,15 @@ export class PageTwoComponent implements OnInit {
   }
 
   dialogResult() {
-    this.store.dispatch(DialogResult({ result: 'ok' }));
+    this.store.pipe(
+      select(selectText),
+      take(1)
+    ).subscribe(text => {
+      this.store.dispatch(MainResult({ text, result: 'ok' }));
+    });
+  }
+
+  cancel() {
+    this.store.dispatch(MainResult({ result: 'cancel' }));
   }
 }

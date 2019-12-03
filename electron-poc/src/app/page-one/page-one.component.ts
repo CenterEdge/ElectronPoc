@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { ApplicationState } from '../reducers';
 import { selectText } from '../selectors/main';
-import { NavigateTo } from '../actions/main';
+import { NavigateTo, TextChanged } from '../actions/main';
 import { TopRoutes } from '../routes';
 
 @Component({
@@ -23,5 +23,9 @@ export class PageOneComponent implements OnInit {
 
   next() {
     this.store.dispatch(NavigateTo({ route: [ TopRoutes.pageTwo ] }));
+  }
+
+  change(value: string) {
+    this.store.dispatch(TextChanged({ text: value }));
   }
 }

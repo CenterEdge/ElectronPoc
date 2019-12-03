@@ -19,6 +19,7 @@ namespace WinFormsTest.Actions
             registry.Add<NavigateToAction>();
             registry.Add<PingAction>();
             registry.Add<PongAction>();
+            registry.Add<MainResultAction>();
         }
     }
 }

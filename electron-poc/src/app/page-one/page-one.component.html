@@ -1,6 +1,6 @@
 <p>page-one works!!!</p>
 
-<p>Text: {{ text$ | async }}</p>
+<p>Set a value: <input type="text" [value]="text$ | async" (change)="change($event.target.value)" /></p>
 
 <p>
   <button (click)="next()">Next</button>
