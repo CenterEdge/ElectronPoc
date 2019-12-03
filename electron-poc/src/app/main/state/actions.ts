@@ -1,10 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { createForParentAction } from './forParent';
-
-export const NavigateTo = createAction(
-  '[Main] Navigate To',
-  props<{ route: string[]}>()
-);
+import { createForParentAction } from '../../actions/forParent';
 
 export const TextChanged = createAction(
   '[Main] Text Changed',

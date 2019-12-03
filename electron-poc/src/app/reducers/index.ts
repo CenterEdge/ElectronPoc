@@ -4,7 +4,7 @@ import {
   MetaReducer
 } from '@ngrx/store';
 import { RouterReducerState, BaseRouterStoreState } from '@ngrx/router-store';
-import * as fromMain from './main';
+import * as fromMain from '../main/state/reducers';
 import * as fromRouter from './router';
 import { environment } from '../../environments/environment';
 

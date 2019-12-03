@@ -42,7 +42,7 @@ namespace WinFormsTest
         {
             _processManager.MessagePipe.ObserveOn(SynchronizationContext.Current).Take(1).Subscribe(async pipe =>
             {
-                var result = await new ModalForm(pipe).ShowDialog<MainResultAction>(this, "page-one");
+                var result = await new ModalForm(pipe).ShowDialog<MainResultAction>(this, "main", "page-one");
 
                 MessageBox.Show(this, result.Result != "ok" ? result.Result : result.Text, "Result");
             });

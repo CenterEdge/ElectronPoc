@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { ApplicationState } from '../reducers';
-import { MainResult } from '../actions/main';
-import { selectText } from '../selectors/main';
+import { ApplicationState } from '../../reducers';
+import { MainResult } from '../state/actions';
+import { selectText } from '../state/selectors';
 import { take } from 'rxjs/operators';
 
 @Component({

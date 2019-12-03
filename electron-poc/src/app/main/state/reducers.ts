@@ -1,5 +1,5 @@
 import { createReducer, on, Action } from '@ngrx/store';
-import * as MainActions from '../actions/main';
+import * as MainActions from './actions';
 
 export interface ModuleState {
   text: string;

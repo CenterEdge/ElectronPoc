@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { ApplicationState } from '../reducers';
-import { selectText } from '../selectors/main';
-import { NavigateTo, TextChanged } from '../actions/main';
-import { TopRoutes } from '../routes';
+import { ApplicationState } from '../../reducers';
+import { selectText } from '../state/selectors';
+import { NavigateTo } from '../../actions/system';
+import { TopRoutes } from '../../routes';
+import { MainRoutes } from '../routes';
+import { TextChanged } from '../state/actions';
 
 @Component({
   selector: 'app-page-one',
@@ -22,7 +24,7 @@ export class PageOneComponent implements OnInit {
   }
 
   next() {
-    this.store.dispatch(NavigateTo({ route: [ TopRoutes.pageTwo ] }));
+    this.store.dispatch(NavigateTo({ route: [ TopRoutes.main, MainRoutes.pageTwo ] }));
   }
 
   change(value: string) {

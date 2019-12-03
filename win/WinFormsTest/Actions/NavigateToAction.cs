@@ -6,7 +6,7 @@ namespace WinFormsTest.Actions
     [ActionType(ActionType)]
     public class NavigateToAction : AngularAction
     {
-        public const string ActionType = "[Main] Navigate To";
+        public const string ActionType = "[System] Navigate To";
 
         public override string Type => ActionType;
 

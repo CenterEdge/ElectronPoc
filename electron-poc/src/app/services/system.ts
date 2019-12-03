@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class MainService {
+export class SystemService {
   constructor(private router: Router) { }
 
   navigateTo(route: string[]) {
